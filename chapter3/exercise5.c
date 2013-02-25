@@ -3,7 +3,17 @@
 #define MAXLEN 1024
 	#define abs(x) (x) > 0 ? (x) : -(x)
 
-void itob(int, char s[], unsigned)
+void itob(int, char s[], unsigned);
+void reverse(char s[])
+   {
+       int c, i, j;
+       for (i = 0, j = strlen(s)-1; i < j; i++, j--) {
+           c = s[i];
+           s[i] = s[j];
+           s[j] = c;
+       }
+   }
+   
 
 int main (int argc, char const* argv[])
 {
@@ -25,6 +35,7 @@ int parsetodig(int c) {
 	}
 }
 
+
 void itob(int n, char s[], unsigned b) {
 	int sign,i;
 	
@@ -32,7 +43,7 @@ void itob(int n, char s[], unsigned b) {
 	i = 0;
 	do {
 		s[i++] = parsetodig(n % b);
-	} while( n/b != 0);
+	} while( (n/=b) != 0);
 	s[i] = '\0';
 	reverse(s);	
 }
