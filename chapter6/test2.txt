@@ -1,0 +1,14 @@
+
+#define WORD 1024
+#define GROUPSIZE 500
+
+
+float we;
+char tmp[WORD];
+float we;
+double weuri;
+char zcw;
+double zcwwer;
+float zcwwerrereree;
+double zcwwerwer;
+double zcwwerzcv;

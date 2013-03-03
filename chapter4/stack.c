@@ -1,14 +1,16 @@
 #include <stdio.h>
-   #include <stdlib.h>  /* for  atof() */
+#include <stdlib.h>  /* for  atof() */
+#include <ctype.h>
 #include "string.h"
-   #define MAXOP   100  /* max size of operand or operator */
-   #define NUMBER  '0'  /* signal that a number was found */
+#define MAXOP   100  /* max size of operand or operator */
+#define NUMBER  '0'  /* signal that a number was found */
 #define MAXVAL  100  /* maximum depth of val stack */
-	void printstacktop();
-	double getstacktop();
-	int swaptoptwo();	
 
-	int lastprinted = -1;
+void printstacktop();
+double getstacktop();
+int swaptoptwo();	
+
+	double lastprinted = -1;
    int sp = 0;          /* next free stack position */
    double val[MAXVAL];  /* value stack */
    /* push:  push f onto value stack */
@@ -43,22 +45,17 @@
    	return i;
    }
    
-   int newgetop(char s[]) {
+   /*int newgetop(char s[]) {
    	static int i = -1;
    	static char buff[1024];
    	if(i = -1) {
 	   		getline(buff, 1024);
 	   		i = 0;
-   		}
+   	}
    	int j = 0;
    	printf("%s\n", buff);
    	while(buff[i] == ' ' || buff[i] == '\t')
 	   		i++;
-   /*	if(buff[i] == '\n') {
-   		i = 0;
-   		getline(buff, 1024);
-   		return newgetop(s);
-   	}*/
    	s[1] = '\0';
    	if(!isdigit(buff[i]) && buff[i] != '.')
 	   		return buff[i];
@@ -74,7 +71,7 @@
 	s[j] = '\0';
 	printf("%s\n", s);
 	return NUMBER;
-   }
+   }*/
    
    int getch(void);
    void ungetch(int);
@@ -156,22 +153,22 @@
    		return val[sp];
    }
    
-   int swaptoptwo() {
+   /*int swaptoptwo() {
    		if(sp <= 1) {
    			printf("there is no enough elements");
    			return -1;
-   		}
+   		};
    		
    		double tmp;
    		/*tmp1 = pop();
    		tmp2 = popp();
    		push(tmp1);
    		push(tmp2);*/
-	   		tmp = val[sp - 1];
-	   		val[sp - 1] = val[sp - 2];
-	   		val[sp - 2] = tmp;
+	 /*  	tmp = val[sp - 1];
+	   	val[sp - 1] = val[sp - 2];
+	   	val[sp - 2] = tmp;
    		return 0;	   			
-   }
+   }*/
    
    void clearstack() {
    	sp = 0;

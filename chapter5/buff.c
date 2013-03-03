@@ -10,6 +10,6 @@ int getch() {
 	return --sp > 0 ? val[sp] : getchar();
 }
 
-void ungetch(char c) {
+void ungetch(int c) {
 	val[sp++] = c;
 }
